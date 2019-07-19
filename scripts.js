@@ -15,11 +15,15 @@ class linkedList {
   constructor() {
     this.index = 0;
     this.both = ['head'];
+    this.previous = 'head';
   };
 
   add(element) {
-    this.both.push(this.both[0]+'-'+element);
-    this.index++;
+    console.log('this.both = ',this.both);
+    console.log('this.index = ',this.index);
+    this.both.push(this.previous+'-'+element);
+    this.index = this.index+1;
+    this.previous = element;
     return 1;
   };
 
@@ -28,9 +32,19 @@ class linkedList {
   };
 }
 
+testList = new linkedList();
+testList.add('second');
+testList.add('third');
+testList.add('fourth');
+console.log(testList);
+console.log(testList.get(0));
+console.log(testList.get(1));
+console.log(testList.get(2));
+console.log(testList.get(3));
+
 $(document).ready(function() {
-  $('#output-section-1').text(1);
-  $('#output-section-2').text(2);
-  $('#output-section-3').text(3);
-  $('#output-section-4').text(4);
+  $('#output-section-1').text(JSON.stringify(testList));
+  $('#output-section-2').text(testList.get(1));
+  $('#output-section-3').text(testList.get(2));
+  $('#output-section-4').text(testList.get(3));
   });
