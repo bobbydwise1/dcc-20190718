@@ -17,15 +17,18 @@ const makeRandomNumber = () => {
 class linkedList {
   constructor() {
     this.index = 0;
-    this.both = [];
+    this.both = ['null-null'];
     this.previous = 'null';
+    this.now = 'head'
     this.next = 'null';
   };
 
   add(element) {
-    this.both.push([this.previous,'null']);
     this.both[this.index] = this.previous + '-' + element;
-    this.previous = element;
+    this.both.push(this.now + '-' + 'null')
+    this.previous = this.now;
+    this.now = element;
+    this.next = 'null';
     this.index++;
     return 1;
   };
