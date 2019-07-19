@@ -7,6 +7,9 @@ If using a language that has no pointers (such as Python), you can assume you ha
 */
 
 //Note, this is done in javascript.
+
+//XOR: f(0,0)=false, f(0,1)=true, f(1,0)=true, f(1,1)=false
+
 const makeRandomNumber = () => {
   return Math.ceil(Math.random()*10);
 }
@@ -14,16 +17,16 @@ const makeRandomNumber = () => {
 class linkedList {
   constructor() {
     this.index = 0;
-    this.both = ['head'];
-    this.previous = 'head';
+    this.both = [];
+    this.previous = 'null';
+    this.next = 'null';
   };
 
   add(element) {
-    console.log('this.both = ',this.both);
-    console.log('this.index = ',this.index);
-    this.both.push(this.previous+'-'+element);
-    this.index = this.index+1;
+    this.both.push([this.previous,'null']);
+    this.both[this.index] = this.previous + '-' + element;
     this.previous = element;
+    this.index++;
     return 1;
   };
 
@@ -33,9 +36,9 @@ class linkedList {
 }
 
 testList = new linkedList();
+testList.add('first');
 testList.add('second');
 testList.add('third');
-testList.add('fourth');
 console.log(testList);
 console.log(testList.get(0));
 console.log(testList.get(1));
