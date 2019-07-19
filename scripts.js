@@ -11,6 +11,23 @@ const makeRandomNumber = () => {
   return Math.ceil(Math.random()*10);
 }
 
+class linkedList {
+  constructor() {
+    this.index = 0;
+    this.both = ['head'];
+  };
+
+  add(element) {
+    this.both.push(this.both[0]+'-'+element);
+    this.index++;
+    return 1;
+  };
+
+  get(index) {
+    return this.both[index];
+  };
+}
+
 $(document).ready(function() {
   $('#output-section-1').text(1);
   $('#output-section-2').text(2);
