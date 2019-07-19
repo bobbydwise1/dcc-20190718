@@ -25,10 +25,9 @@ class linkedList {
 
   add(element) {
     this.both[this.index] = this.previous + '-' + element;
-    this.both.push(this.now + '-' + 'null')
+    this.both.push(this.now + '-' + this.next)
     this.previous = this.now;
     this.now = element;
-    this.next = 'null';
     this.index++;
     return 1;
   };
@@ -53,4 +52,7 @@ $(document).ready(function() {
   $('#output-section-2').text(testList.get(1));
   $('#output-section-3').text(testList.get(2));
   $('#output-section-4').text(testList.get(3));
+  testList.add('fourth');
+  $('#output-section-5').text(JSON.stringify(testList));
+  $('#output-section-6').text(testList.get(4));
   });
